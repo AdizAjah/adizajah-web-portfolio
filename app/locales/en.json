@@ -1,0 +1,94 @@
+{
+    "nav": {
+        "me": "ME",
+        "education": "EDUCATION",
+        "skill": "SKILL",
+        "project": "PROJECT",
+        "experience": "EXPERIENCE",
+        "contact": "CONTACT_ME"
+    },
+    "hero": {
+        "greeting": "// HELLO WORLD",
+        "name": "Adiz",
+        "role": "FULLSTACK DEVELOPER",
+        "about1": "> I build exceptional and accessible digital experiences for the web. I'm a software developer specializing in building (and occasionally designing) exceptional digital experiences.",
+        "about2": "> Based in Indonesia. Turning complex problems into simple, beautiful, and intuitive designs.",
+        "hire_me": "HIRE_ME",
+        "resume": "RESUME.PDF",
+        "years_exp": "YEARS_EXP",
+        "projects": "PROJECTS"
+    },
+    "education": {
+        "title": "Education",
+        "list": [
+            {
+                "year": "2020 - 2024",
+                "title": "University of Coding",
+                "desc": "Bachelor of Computer Science. Focus on web technologies and software architecture."
+            },
+            {
+                "year": "2016 - 2019",
+                "title": "High School of Logic",
+                "desc": "Science Major. Introduced to programming and algorithms."
+            }
+        ]
+    },
+    "skills": {
+        "title": "Skills",
+        "languages": "Languages_",
+        "frameworks": "Frameworks_"
+    },
+    "projects": {
+        "title": "Projects",
+        "view": "VIEW PROJECT",
+        "list": [
+            {
+                "title": "ECOMMERCE PLATFORM",
+                "desc": "A full-featured online store with payment integration.",
+                "tech": [
+                    "Next.js",
+                    "Stripe",
+                    "MongoDB"
+                ]
+            },
+            {
+                "title": "AI IMAGE GENERATOR",
+                "desc": "Web app to generate images using OpenAI API.",
+                "tech": [
+                    "Python",
+                    "React",
+                    "FastAPI"
+                ]
+            },
+            {
+                "title": "DASHBOARD UI",
+                "desc": "Admin dashboard for data visualization.",
+                "tech": [
+                    "Vue.js",
+                    "Chart.js",
+                    "Firebase"
+                ]
+            }
+        ]
+    },
+    "experience": {
+        "title": "Experience",
+        "list": [
+            {
+                "period": "2022 - PRESENT",
+                "role": "SENIOR FRONTEND DEV",
+                "company": "Tech Unicorn"
+            },
+            {
+                "period": "2020 - 2022",
+                "role": "FULLSTACK DEV",
+                "company": "Startup Studio"
+            }
+        ]
+    },
+    "contact": {
+        "title": "CONTACT_ME",
+        "subtitle": "Have a project in mind? Let's work together.",
+        "button": "SEND_EMAIL"
+    }
+}
