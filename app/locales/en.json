@@ -9,10 +9,10 @@
     },
     "hero": {
         "greeting": "// HELLO WORLD",
-        "name": "Adiz",
-        "role": "FULLSTACK DEVELOPER",
-        "about1": "> I build exceptional and accessible digital experiences for the web. I'm a software developer specializing in building (and occasionally designing) exceptional digital experiences.",
-        "about2": "> Based in Indonesia. Turning complex problems into simple, beautiful, and intuitive designs.",
+        "name": "Rainadiz D. Nugroho",
+        "role": "FULL-STACK DEVELOPER",
+        "about1": "> Software Engineering student with a strong interest in web and game development. Experienced in building small-scale applications using Laravel, Flutter, and JavaScript.",
+        "about2": "> Based in Indonesia. Actively developing backend and frontend skills through projects, teamwork, and certifications.",
         "hire_me": "HIRE_ME",
         "resume": "RESUME.PDF",
         "years_exp": "YEARS_EXP",
@@ -22,52 +22,127 @@
         "title": "Education",
         "list": [
             {
-                "year": "2020 - 2024",
-                "title": "University of Coding",
-                "desc": "Bachelor of Computer Science. Focus on web technologies and software architecture."
+                "year": "2024 - PRESENT",
+                "title": "IDN Boarding School Solo",
+                "desc": "Software Engineer Major. Active in Student Council (Religious Affairs Division)."
             },
             {
-                "year": "2016 - 2019",
-                "title": "High School of Logic",
-                "desc": "Science Major. Introduced to programming and algorithms."
+                "year": "2020 - 2024",
+                "title": "SMII Nurul Musthofa",
+                "desc": "Focused on learning Microsoft Excel and fundamental computer skills."
             }
         ]
     },
     "skills": {
         "title": "Skills",
         "languages": "Languages_",
-        "frameworks": "Frameworks_"
+        "frameworks": "Frameworks_",
+        "tools": "Tools_"
     },
     "projects": {
         "title": "Projects",
         "view": "VIEW PROJECT",
         "list": [
             {
-                "title": "ECOMMERCE PLATFORM",
-                "desc": "A full-featured online store with payment integration.",
+                "title": "E-Library System",
+                "desc": "A digital library management system built with Laravel for managing book loans and members.",
+                "tech": [
+                    "Laravel",
+                    "PHP",
+                    "MySQL"
+                ],
+                "image": "/Museum Angkut.jpg",
+                "link": ""
+            },
+            {
+                "title": "Student Task Tracker",
+                "desc": "A mobile application to help students track their assignments and deadlines efficiently.",
+                "tech": [
+                    "Flutter",
+                    "Dart",
+                    "Firebase"
+                ],
+                "image": "/haha.png",
+                "link": "https://github.com/iqbaladiatma/student_task_tracker"
+            },
+            {
+                "title": "Hack n Slash 2D Game",
+                "desc": "A simple 2D action game developed using vanilla JavaScript and HTML5 Canvas.",
+                "tech": [
+                    "JavaScript",
+                    "HTML5",
+                    "CSS"
+                ],
+                "image": "/Museum Angkut.jpg",
+                "link": "https://warot.vercel.app/"
+            },
+            {
+                "title": "E-Commerce App",
+                "desc": "Full-stack e-commerce solution with product listings and cart functionality.",
+                "tech": [
+                    "Flutter",
+                    "Laravel",
+                    "API"
+                ],
+                "image": "/Museum Angkut.jpg",
+                "link": "https://github.com/AdizAjah/Toko-Onlen"
+            },
+            {
+                "title": "Rolling Number Game",
+                "desc": "A simple number generator game built with Next.js and React.",
                 "tech": [
                     "Next.js",
-                    "Stripe",
-                    "MongoDB"
-                ]
-            },
-            {
-                "title": "AI IMAGE GENERATOR",
-                "desc": "Web app to generate images using OpenAI API.",
-                "tech": [
-                    "Python",
                     "React",
-                    "FastAPI"
-                ]
+                    "Tailwind"
+                ],
+                "image": "/Museum Angkut.jpg",
+                "link": "https://trillione.vercel.app/"
             },
             {
-                "title": "DASHBOARD UI",
-                "desc": "Admin dashboard for data visualization.",
+                "title": "Payroll Payment System",
+                "desc": "Backend system for managing employee payroll and payment records.",
                 "tech": [
-                    "Vue.js",
-                    "Chart.js",
-                    "Firebase"
-                ]
+                    "Laravel",
+                    "MySQL"
+                ],
+                "image": "/Museum Angkut.jpg",
+                "link": "https://github.com/AdizAjah/Peirol777"
+            },
+            {
+                "title": "QR Generator & Scanner App",
+                "desc": "This project focuses on building a QR Scanner application using Flutter. This App will implement camera access, QR code detection, and result handling. The app should feature a clean interface, smooth scanning experience, and clear feedback when a QR code is successfully detected or invalid.",
+                "tech": [
+                    "Flutter"
+                ],
+                "image": "/Museum Angkut.jpg",
+                "link": "https://github.com/AdizAjah/qr-generator-and-scanner"
+            },
+            {
+                "title": "Attendance App",
+                "desc": ".",
+                "tech": [
+                    "Flutter"
+                ],
+                "image": "/Museum Angkut.jpg",
+                "link": "https://github.com/AdizAjah/Attendance-App"
+            },
+            {
+                "title": "News App",
+                "desc": "T.",
+                "tech": [
+                    "Flutter"
+                ],
+                "image": "/Museum Angkut.jpg",
+                "link": "https://github.com/AdizAjah/NewsApp"
+            },
+            {
+                "title": "AI Schedule Generator App",
+                "desc": ".",
+                "tech": [
+                    "Flutter"
+                ],
+                "image": "/Museum Angkut.jpg",
+                "link": "https://github.com/AdizAjah/ai_schedule_generator"
             }
         ]
     },
@@ -75,14 +150,14 @@
         "title": "Experience",
         "list": [
             {
-                "period": "2022 - PRESENT",
-                "role": "SENIOR FRONTEND DEV",
-                "company": "Tech Unicorn"
+                "period": "RECENT",
+                "role": "Participant",
+                "company": "IDN Tangguh"
             },
             {
-                "period": "2020 - 2022",
-                "role": "FULLSTACK DEV",
-                "company": "Startup Studio"
+                "period": "RECENT",
+                "role": "Teaching Assistant",
+                "company": "IDN Mengajar"
             }
         ]
     },

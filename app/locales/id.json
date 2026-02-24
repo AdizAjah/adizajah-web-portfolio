@@ -9,10 +9,10 @@
     },
     "hero": {
         "greeting": "// HALO DUNIA",
-        "name": "Adiz",
+        "name": "Rainadiz D. Nugroho",
         "role": "PENGEMBANG FULLSTACK",
-        "about1": "> Saya membangun pengalaman digital yang luar biasa dan dapat diakses di web. Saya adalah pengembang perangkat lunak yang berspesialisasi dalam membangun pengalaman digital yang luar biasa.",
-        "about2": "> Berbasis di Indonesia. Mengubah masalah kompleks menjadi desain yang sederhana, indah, dan intuitif.",
+        "about1": "> Mahasiswa Teknik Perangkat Lunak dengan minat kuat pada pengembangan web dan game. Berpengalaman membangun aplikasi skala kecil menggunakan Laravel, Flutter, dan JavaScript.",
+        "about2": "> Berbasis di Indonesia. Aktif mengembangkan skill backend dan frontend melalui proyek, kerja tim, dan sertifikasi.",
         "hire_me": "REKRUT_SAYA",
         "resume": "CV.PDF",
         "years_exp": "TAHUN_PENGALAMAN",
@@ -22,52 +22,127 @@
         "title": "Pendidikan",
         "list": [
             {
-                "year": "2020 - 2024",
-                "title": "Universitas Coding",
-                "desc": "Sarjana Ilmu Komputer. Fokus pada teknologi web dan arsitektur perangkat lunak."
+                "year": "2024 - SEKARANG",
+                "title": "IDN Boarding School Solo",
+                "desc": "Jurusan Software Engineer. Aktif di Dewan Siswa (Divisi Kerohanian)."
             },
             {
-                "year": "2016 - 2019",
-                "title": "SMA Logika",
-                "desc": "Jurusan IPA. Diperkenalkan dengan pemrograman dan algoritma."
+                "year": "2020 - 2024",
+                "title": "SMII Nurul Musthofa",
+                "desc": "Fokus mempelajari Microsoft Excel dan keterampilan komputer dasar."
             }
         ]
     },
     "skills": {
         "title": "Keahlian",
         "languages": "Bahasa_",
-        "frameworks": "Kerangka_Kerja_"
+        "frameworks": "Kerangka_Kerja_",
+        "tools": "Alat_Alat_"
     },
     "projects": {
         "title": "Proyek",
         "view": "LIHAT PROYEK",
         "list": [
             {
-                "title": "PLATFORM E-COMMERCE",
-                "desc": "Toko online lengkap dengan integrasi pembayaran.",
+                "title": "Sistem E-Library",
+                "desc": "Sistem manajemen perpustakaan digital dibangun dengan Laravel untuk mengelola peminjaman buku dan anggota.",
+                "tech": [
+                    "Laravel",
+                    "PHP",
+                    "MySQL"
+                ],
+                "image": "/Museum Angkut.jpg",
+                "link": "."
+            },
+            {
+                "title": "Pelacak Tugas Siswa",
+                "desc": "Aplikasi mobile untuk membantu siswa melacak tugas dan tenggat waktu secara efisien.",
+                "tech": [
+                    "Flutter",
+                    "Dart",
+                    "Firebase"
+                ],
+                "image": "/Museum Angkut.jpg",
+                "link": "https://github.com/iqbaladiatma/student_task_tracker"
+            },
+            {
+                "title": "Game 2D Hack n Slash",
+                "desc": "Game aksi 2D sederhana yang dikembangkan menggunakan JavaScript vanilla dan HTML5 Canvas.",
+                "tech": [
+                    "JavaScript",
+                    "HTML5",
+                    "CSS"
+                ],
+                "image": "/Museum Angkut.jpg",
+                "link": "https://warot.vercel.app/"
+            },
+            {
+                "title": "Aplikasi E-Commerce",
+                "desc": "Solusi e-commerce full-stack dengan daftar produk dan fungsionalitas keranjang.",
+                "tech": [
+                    "Flutter",
+                    "Laravel",
+                    "API"
+                ],
+                "image": "/Museum Angkut.jpg",
+                "link": "https://github.com/AdizAjah/Toko-Onlen"
+            },
+            {
+                "title": "Game Angka Acak",
+                "desc": "Game generator angka sederhana yang dibangun dengan Next.js dan React.",
                 "tech": [
                     "Next.js",
-                    "Stripe",
-                    "MongoDB"
-                ]
-            },
-            {
-                "title": "GENERATOR GAMBAR AI",
-                "desc": "Aplikasi web untuk menghasilkan gambar menggunakan API OpenAI.",
-                "tech": [
-                    "Python",
                     "React",
-                    "FastAPI"
-                ]
+                    "Tailwind"
+                ],
+                "image": "/Museum Angkut.jpg",
+                "link": "https://trillione.vercel.app/"
             },
             {
-                "title": "UI DASHBOARD",
-                "desc": "Dashboard admin untuk visualisasi data.",
+                "title": "Sistem Pembayaran Gaji",
+                "desc": "Sistem backend untuk mengelola gaji karyawan dan catatan pembayaran.",
                 "tech": [
-                    "Vue.js",
-                    "Chart.js",
-                    "Firebase"
-                ]
+                    "Laravel",
+                    "MySQL"
+                ],
+                "image": "/Museum Angkut.jpg",
+                "link": "https://github.com/AdizAjah/Peirol777"
+            },
+            {
+                "title": "Aplikasi Pembuat & Pemindai QR",
+                "desc": "Proyek ini berfokus pada pembuatan aplikasi Pemindai QR menggunakan Flutter. Aplikasi ini mengimplementasikan akses kamera, deteksi kode QR, dan penanganan hasil. Aplikasi ini menampilkan antarmuka yang bersih, pengalaman pemindaian yang lancar, serta umpan balik yang jelas saat kode QR berhasil terdeteksi atau tidak valid.",
+                "tech": [
+                    "Flutter"
+                ],
+                "image": "/Museum Angkut.jpg",
+                "link": "https://github.com/AdizAjah/qr-generator-and-scanner"
+            },
+            {
+                "title": "Aplikasi Absensi",
+                "desc": ".",
+                "tech": [
+                    "Flutter"
+                ],
+                "image": "/Museum Angkut.jpg",
+                "link": "https://github.com/AdizAjah/Attendance-App"
+            },
+            {
+                "title": "Aplikasi Berita",
+                "desc": "T.",
+                "tech": [
+                    "Flutter"
+                ],
+                "image": "/Museum Angkut.jpg",
+                "link": "https://github.com/AdizAjah/NewsApp"
+            },
+            {
+                "title": "Aplikasi Pembuat Jadwal AI",
+                "desc": ".",
+                "tech": [
+                    "Flutter"
+                ],
+                "image": "/Museum Angkut.jpg",
+                "link": "https://github.com/AdizAjah/ai_schedule_generator"
             }
         ]
     },
@@ -75,14 +150,14 @@
         "title": "Pengalaman",
         "list": [
             {
-                "period": "2022 - SEKARANG",
-                "role": "FRONTEND DEV SENIOR",
-                "company": "Tech Unicorn"
+                "period": "BARU-BARU INI",
+                "role": "Peserta",
+                "company": "IDN Tangguh"
             },
             {
-                "period": "2020 - 2022",
-                "role": "FULLSTACK DEV",
-                "company": "Startup Studio"
+                "period": "BARU-BARU INI",
+                "role": "Asisten Pengajar",
+                "company": "IDN Mengajar"
             }
         ]
     },
