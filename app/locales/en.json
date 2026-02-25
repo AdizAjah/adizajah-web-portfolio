@@ -9,7 +9,7 @@
     },
     "hero": {
         "greeting": "// HELLO WORLD",
-        "name": "Rainadiz D. Nugroho",
+        "name": "Adiz",
         "role": "FULL-STACK DEVELOPER",
         "about1": "> Software Engineering student with a strong interest in web and game development. Experienced in building small-scale applications using Laravel, Flutter, and JavaScript.",
         "about2": "> Based in Indonesia. Actively developing backend and frontend skills through projects, teamwork, and certifications.",
@@ -152,12 +152,14 @@
             {
                 "period": "RECENT",
                 "role": "Participant",
-                "company": "IDN Tangguh"
+                "company": "IDN Tangguh",
+                "image": "/Museum Angkut.jpg"
             },
             {
                 "period": "RECENT",
                 "role": "Teaching Assistant",
-                "company": "IDN Mengajar"
+                "company": "IDN Mengajar",
+                "image": "/haha.png"
             }
         ]
     },

@@ -2,7 +2,8 @@
 
 import Image from "next/image";
 import { motion } from "framer-motion";
-import { useState } from "react";
+import { useState, useEffect, useRef } from "react";
+import gsap from "gsap";
 import {
   User,
   GraduationCap,
@@ -24,9 +25,48 @@ import {
 } from "lucide-react";
 import { useLanguage } from "./context/LanguageContext";
 
+const skillIcons: { [key: string]: string } = {
+  JavaScript: "https://cdn.simpleicons.org/javascript/white",
+  PHP: "https://cdn.simpleicons.org/php/white",
+  Dart: "https://cdn.simpleicons.org/dart/white",
+  Python: "https://cdn.simpleicons.org/python/white",
+  Laravel: "https://cdn.simpleicons.org/laravel/white",
+  Flutter: "https://cdn.simpleicons.org/flutter/white",
+  "Next.js": "https://cdn.simpleicons.org/nextdotjs/white",
+  Git: "https://cdn.simpleicons.org/git/white",
+  Figma: "https://cdn.simpleicons.org/figma/white",
+  "VS Code": "https://cdn.simpleicons.org/visualstudiocode/white",
+};
+
 export default function Home() {
   const { language, setLanguage, t } = useLanguage();
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [activeImage, setActiveImage] = useState(0);
+  const bgTextTopRef = useRef<HTMLDivElement>(null);
+  const bgTextBottomRef = useRef<HTMLDivElement>(null);
+
+  const images = ["/Museum Angkut.jpg", "/haha.png"];
+
+  useEffect(() => {
+    if (bgTextTopRef.current) {
+      gsap.to(bgTextTopRef.current, {
+        xPercent: -50,
+        duration: 35,
+        repeat: -1,
+        ease: "none",
+      });
+    }
+    if (bgTextBottomRef.current) {
+      // Different speed or direction can be nice, let's go same but slightly offset or reversed
+      gsap.set(bgTextBottomRef.current, { xPercent: -50 });
+      gsap.to(bgTextBottomRef.current, {
+        xPercent: 0,
+        duration: 35,
+        repeat: -1,
+        ease: "none",
+      });
+    }
+  }, []);
 
   // --- FUNGSI SMOOTH SCROLL ---
   const handleNavClick = (e: React.MouseEvent<HTMLAnchorElement, MouseEvent>, href: string) => {
@@ -149,17 +189,67 @@ export default function Home() {
         <div className="absolute inset-0 bg-[linear-gradient(to_right,#1a1a1a_1px,transparent_1px),linear-gradient(to_bottom,#1a1a1a_1px,transparent_1px)] bg-size-[2rem_2rem] mask-[radial-gradient(ellipse_60%_50%_at_50%_0%,#000_70%,transparent_110%)] -z-10"></div>
 
         {/* === HERO / ME SECTION === */}
-        <section id="me" className="min-h-screen flex flex-col justify-center p-6 md:p-16 border-b-2 border-white">
+        <section id="me" className="min-h-screen flex flex-col justify-center p-6 md:p-16 border-b-2 border-white relative overflow-hidden">
+          {/* Background Animation - Top */}
+          <div className="absolute top-10 inset-x-0 pointer-events-none -z-10 opacity-[0.10] select-none flex items-start whitespace-nowrap">
+            <div
+              ref={bgTextTopRef}
+              className="text-[100px] md:text-[200px] font-black uppercase flex gap-20 w-max"
+            >
+              <span>ADIZAJAH</span>
+              <span>ADIZAJAH</span>
+              <span>ADIZAJAH</span>
+              <span>ADIZAJAH</span>
+              {/* Duplicate set for seamless loop */}
+              <span>ADIZAJAH</span>
+              <span>ADIZAJAH</span>
+              <span>ADIZAJAH</span>
+              <span>ADIZAJAH</span>
+            </div>
+          </div>
+
+          {/* Background Animation - Bottom */}
+          <div className="absolute bottom-10 inset-x-0 pointer-events-none -z-10 opacity-[0.10] select-none flex items-end whitespace-nowrap">
+            <div
+              ref={bgTextBottomRef}
+              className="text-[100px] md:text-[200px] font-black uppercase flex gap-20 w-max"
+            >
+              <span>ADIZAJAH</span>
+              <span>ADIZAJAH</span>
+              <span>ADIZAJAH</span>
+              <span>ADIZAJAH</span>
+              {/* Duplicate set for seamless loop */}
+              <span>ADIZAJAH</span>
+              <span>ADIZAJAH</span>
+              <span>ADIZAJAH</span>
+              <span>ADIZAJAH</span>
+            </div>
+          </div>
           <div className="flex flex-col items-center md:flex-row md:items-start gap-8 md:gap-12">
-            <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 0.5 }} className="shrink-0">
-              <div className="relative w-[220px] h-[280px] md:w-[320px] md:h-[400px] border-2 border-white bg-zinc-900">
-                <Image
-                  src="/Museum Angkut.jpg"
-                  alt="Rainadiz Danendra Nugroho"
-                  layout="fill"
-                  objectFit="cover"
-                  className="grayscale hover:grayscale-0 transition-all duration-200"
-                />
+            <motion.div
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ duration: 0.5 }}
+              className="shrink-0 cursor-pointer group/img"
+              onClick={() => setActiveImage((prev) => (prev === 0 ? 1 : 0))}
+            >
+              <div className="relative w-[220px] h-[280px] md:w-[320px] md:h-[400px] border-2 border-white bg-zinc-900 overflow-hidden">
+                <motion.div
+                  key={activeImage}
+                  initial={{ opacity: 0, scale: 1.1 }}
+                  animate={{ opacity: 1, scale: 1 }}
+                  exit={{ opacity: 0, scale: 0.9 }}
+                  transition={{ duration: 0.4 }}
+                  className="w-full h-full relative"
+                >
+                  <Image
+                    src={images[activeImage]}
+                    alt="Rainadiz Danendra Nugroho"
+                    layout="fill"
+                    objectFit="cover"
+                    className="grayscale group-hover/img:grayscale-0 transition-all duration-300"
+                  />
+                </motion.div>
               </div>
             </motion.div>
 
@@ -237,7 +327,14 @@ export default function Home() {
                 <h3 className="text-base md:text-lg font-bold text-white mb-4 uppercase border-b-2 border-zinc-800 pb-2">{t.skills.languages}</h3>
                 <div className="flex flex-wrap gap-2">
                   {['JavaScript', 'PHP', 'Dart', 'Python'].map((skill) => (
-                    <span key={skill} className="px-3 py-1 border border-zinc-700 text-xs md:text-sm text-zinc-300 hover:bg-white hover:text-black hover:border-white transition-colors cursor-pointer">
+                    <span key={skill} className="px-3 py-1.5 border border-zinc-700 text-xs md:text-sm text-zinc-300 hover:bg-white hover:text-black hover:border-white transition-all cursor-pointer flex items-center gap-2 group/skill">
+                      {skillIcons[skill] && (
+                        <img
+                          src={skillIcons[skill]}
+                          alt={skill}
+                          className="w-4 h-4 transition-all group-hover/skill:invert"
+                        />
+                      )}
                       {skill}
                     </span>
                   ))}
@@ -249,7 +346,14 @@ export default function Home() {
                 <h3 className="text-base md:text-lg font-bold text-white mb-4 uppercase border-b-2 border-zinc-800 pb-2">{t.skills.frameworks}</h3>
                 <div className="flex flex-wrap gap-2">
                   {['Laravel', 'Flutter', 'Next.js'].map((skill) => (
-                    <span key={skill} className="px-3 py-1 border border-zinc-700 text-xs md:text-sm text-zinc-300 hover:bg-white hover:text-black hover:border-white transition-colors cursor-pointer">
+                    <span key={skill} className="px-3 py-1.5 border border-zinc-700 text-xs md:text-sm text-zinc-300 hover:bg-white hover:text-black hover:border-white transition-all cursor-pointer flex items-center gap-2 group/skill">
+                      {skillIcons[skill] && (
+                        <img
+                          src={skillIcons[skill]}
+                          alt={skill}
+                          className="w-4 h-4 transition-all group-hover/skill:invert"
+                        />
+                      )}
                       {skill}
                     </span>
                   ))}
@@ -261,7 +365,14 @@ export default function Home() {
                 <h3 className="text-base md:text-lg font-bold text-white mb-4 uppercase border-b-2 border-zinc-800 pb-2">{t.skills.tools}</h3>
                 <div className="flex flex-wrap gap-2">
                   {['Git', 'Figma', 'VS Code'].map((skill) => (
-                    <span key={skill} className="px-3 py-1 border border-zinc-700 text-xs md:text-sm text-zinc-300 hover:bg-white hover:text-black hover:border-white transition-colors cursor-pointer">
+                    <span key={skill} className="px-3 py-1.5 border border-zinc-700 text-xs md:text-sm text-zinc-300 hover:bg-white hover:text-black hover:border-white transition-all cursor-pointer flex items-center gap-2 group/skill">
+                      {skillIcons[skill] && (
+                        <img
+                          src={skillIcons[skill]}
+                          alt={skill}
+                          className="w-4 h-4 transition-all group-hover/skill:invert"
+                        />
+                      )}
                       {skill}
                     </span>
                   ))}
@@ -325,12 +436,27 @@ export default function Home() {
             <div className="w-20 md:w-32 h-1 bg-white mb-8 md:mb-10"></div>
 
             <div className="space-y-6">
-              {t.experience.list.map((exp, index) => (
-                <div key={index} className="flex flex-col md:flex-row border-2 border-zinc-700 hover:border-white transition-colors p-4 md:p-6 gap-2 md:gap-4">
-                  <div className="md:w-1/4 text-zinc-500 text-xs md:text-sm font-bold border-b md:border-b-0 md:border-r border-zinc-800 pb-2 md:pb-0 md:pr-4 flex items-center">
-                    {exp.period}
+              {t.experience.list.map((exp: any, index: number) => (
+                <div key={index} className="flex flex-col md:flex-row border-2 border-zinc-700 hover:border-white transition-colors p-4 md:p-6 gap-2 md:gap-4 group/exp">
+                  <div className="md:w-1/4 relative overflow-hidden text-zinc-500 text-xs md:text-sm font-bold border-b md:border-b-0 md:border-r border-zinc-800 pb-2 md:pb-0 md:pr-4 flex items-center min-h-[60px] md:min-h-[100px]">
+                    {/* DEBUG: Background Image */}
+                    {exp.image ? (
+                      <>
+                        <img
+                          src={exp.image}
+                          alt=""
+                          className="absolute inset-0 w-full h-full object-cover opacity-60 z-0"
+                        />
+                        {/* <span className="absolute bottom-0 left-0 text-[8px] bg-red-500 z-50">{exp.image}</span> */}
+                      </>
+                    ) : (
+                      <div className="absolute inset-0 bg-red-900/20 z-0">MISSING</div>
+                    )}
+                    <span className="relative z-10 bg-black/80 px-3 py-1 backdrop-blur-md border border-white/20 text-white">
+                      {exp.period}
+                    </span>
                   </div>
-                  <div className="md:w-3/4">
+                  <div className="md:w-3/4 flex flex-col justify-center">
                     <h3 className="text-lg md:text-xl font-bold text-white">{exp.role}</h3>
                     <p className="text-zinc-400 text-xs md:text-sm mt-1">@ {exp.company}</p>
                   </div>
@@ -342,8 +468,21 @@ export default function Home() {
         </section>
 
         {/* === CONTACT SECTION (MODIFIED) === */}
-        <section id="contact" className="py-16 md:py-20 px-6 md:px-16">
-          <div className="text-center max-w-2xl mx-auto border-2 border-white p-6 md:p-10">
+        <section id="contact" className="py-16 md:py-20 px-6 md:px-16 relative overflow-hidden">
+          {/* Wall of Text Background Pattern - Randomized Stagger */}
+          <div className="absolute inset-0 -z-10 opacity-[0.15] select-none pointer-events-none overflow-hidden flex flex-col">
+            {Array.from({ length: 40 }).map((_, i) => (
+              <div
+                key={i}
+                className="whitespace-nowrap text-[20px] md:text-[32px] leading-tight tracking-[0.2em] font-black uppercase text-white"
+                style={{ marginLeft: `-${Math.random() * 200}px` }}
+              >
+                {Array(40).fill("ADIZAJAH ").join("")}
+              </div>
+            ))}
+          </div>
+
+          <div className="text-center max-w-2xl mx-auto border-2 border-white p-6 md:p-10 bg-black/80 backdrop-blur-sm relative z-10">
             <h2 className="text-2xl md:text-3xl font-bold mb-2 uppercase tracking-wider">{t.contact.title}</h2>
             <p className="text-zinc-400 mb-6 md:mb-8 text-xs md:text-sm mt-4">{t.contact.subtitle}</p>
 

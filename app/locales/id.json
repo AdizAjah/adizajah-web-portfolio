@@ -9,7 +9,7 @@
     },
     "hero": {
         "greeting": "// HALO DUNIA",
-        "name": "Rainadiz D. Nugroho",
+        "name": "Adiz",
         "role": "PENGEMBANG FULLSTACK",
         "about1": "> Mahasiswa Teknik Perangkat Lunak dengan minat kuat pada pengembangan web dan game. Berpengalaman membangun aplikasi skala kecil menggunakan Laravel, Flutter, dan JavaScript.",
         "about2": "> Berbasis di Indonesia. Aktif mengembangkan skill backend dan frontend melalui proyek, kerja tim, dan sertifikasi.",
@@ -152,12 +152,14 @@
             {
                 "period": "BARU-BARU INI",
                 "role": "Peserta",
-                "company": "IDN Tangguh"
+                "company": "IDN Tangguh",
+                "image": "/Museum Angkut.jpg"
             },
             {
                 "period": "BARU-BARU INI",
                 "role": "Asisten Pengajar",
-                "company": "IDN Mengajar"
+                "company": "IDN Mengajar",
+                "image": "/haha.png"
             }
         ]
     },
