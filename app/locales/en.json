@@ -5,6 +5,7 @@
         "skill": "SKILL",
         "project": "PROJECT",
         "experience": "EXPERIENCE",
+        "certificate": "CERTIFICATE",
         "contact": "CONTACT_ME"
     },
     "hero": {
@@ -153,13 +154,72 @@
                 "period": "RECENT",
                 "role": "Participant",
                 "company": "IDN Tangguh",
-                "image": "/Museum Angkut.jpg"
+                "image": "/Museum Angkut.jpg",
+                "desc": "Participated in the IDN Tangguh program focusing on leadership, physical endurance, and teamwork. Completed various outdoor challenges and problem-solving scenarios.",
+                "photos": [
+                    "/Museum Angkut.jpg",
+                    "/haha.png"
+                ]
             },
             {
-                "period": "RECENT",
-                "role": "Teaching Assistant",
-                "company": "IDN Mengajar",
-                "image": "/haha.png"
+                "period": "2024",
+                "role": "Trainer",
+                "company": "SMII Nurul Musthofa",
+                "image": "/experiences/smii/1.jpg",
+                "desc": "Served as a Trainer for junior highschool students, helping them understand fundamental programming concepts and mentoring them through their early coding projects.",
+                "photos": [
+                    "/experiences/smii/1.jpg",
+                    "/experiences/smii/2.jpg"
+                ]
+            },
+            {
+                "period": "2025",
+                "role": "Trainer",
+                "company": "SMK Muhammadiyah Bobotsari",
+                "image": "/experiences/bobotsari/1.jpg",
+                "desc": "Served as a Trainer for senior highschool students, helping them understand fundamental programming concepts and mentoring them through their early coding projects.",
+                "photos": [
+                    "/experiences/bobotsari/1.jpg",
+                    "/experiences/bobotsari/2.jpg"
+                ]
+            },
+            {
+                "period": "2025",
+                "role": "Trainer",
+                "company": "PKBM Cahaya Sunnah",
+                "image": "/experiences/cahayasunnah/1.jpg",
+                "desc": "Served as a Trainer for senior highschool students, helping them understand fundamental programming concepts and mentoring them through their early coding projects.",
+                "photos": [
+                    "/experiences/cahayasunnah/1.jpg",
+                    "/experiences/cahayasunnah/2.jpg"
+                ]
+            }
+        ]
+    },
+    "certificates": {
+        "title": "Certificates",
+        "view": "VERIFY",
+        "list": [
+            {
+                "title": "Belajar Membuat Aplikasi Flutter untuk Pemula",
+                "issuer": "Dicoding",
+                "date": "2025",
+                "credentialId": "L4PQ2W2L2ZO1",
+                "link": "https://www.dicoding.com/certificates/L4PQ2W2L2ZO1"
+            },
+            {
+                "title": "Belajar Dasar AI",
+                "issuer": "Dicoding",
+                "date": "2025",
+                "credentialId": "07Z6JJR6JXQR",
+                "link": "https://www.dicoding.com/certificates/07Z6JJR6JXQR"
+            },
+            {
+                "title": "Memulai Pemrograman dengan Dart",
+                "issuer": "Dicoding",
+                "date": "2025",
+                "credentialId": "JLX15K4W5Z72",
+                "link": "https://www.dicoding.com/certificates/JLX15K4W5Z72"
             }
         ]
     },

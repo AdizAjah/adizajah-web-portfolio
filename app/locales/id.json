@@ -5,13 +5,14 @@
         "skill": "KEAHLIAN",
         "project": "PROYEK",
         "experience": "PENGALAMAN",
+        "certificate": "SERTIFIKAT",
         "contact": "HUBUNGI_SAYA"
     },
     "hero": {
         "greeting": "// HALO DUNIA",
         "name": "Adiz",
         "role": "PENGEMBANG FULLSTACK",
-        "about1": "> Mahasiswa Teknik Perangkat Lunak dengan minat kuat pada pengembangan web dan game. Berpengalaman membangun aplikasi skala kecil menggunakan Laravel, Flutter, dan JavaScript.",
+        "about1": "> Siswa Teknik Perangkat Lunak dengan minat kuat pada pengembangan web dan game. Berpengalaman membangun aplikasi skala kecil menggunakan Laravel, Flutter, dan JavaScript.",
         "about2": "> Berbasis di Indonesia. Aktif mengembangkan skill backend dan frontend melalui proyek, kerja tim, dan sertifikasi.",
         "hire_me": "REKRUT_SAYA",
         "resume": "CV.PDF",
@@ -153,13 +154,72 @@
                 "period": "BARU-BARU INI",
                 "role": "Peserta",
                 "company": "IDN Tangguh",
-                "image": "/Museum Angkut.jpg"
+                "image": "/Museum Angkut.jpg",
+                "desc": "Berpartisipasi dalam program IDN Tangguh yang berfokus pada kepemimpinan, ketahanan fisik, dan kerja sama tim. Menyelesaikan berbagai tantangan luar ruangan dan skenario pemecahan masalah.",
+                "photos": [
+                    "/Museum Angkut.jpg",
+                    "/haha.png"
+                ]
             },
             {
-                "period": "BARU-BARU INI",
-                "role": "Asisten Pengajar",
-                "company": "IDN Mengajar",
-                "image": "/haha.png"
+                "period": "2024",
+                "role": "Pelatih",
+                "company": "SMII Nurul Musthofa",
+                "image": "/experiences/smii/1.jpg",
+                "desc": "Bertugas sebagai pelatih bagi siswa sekolah menengah pertama, membantu mereka memahami konsep pemrograman dasar dan membimbing mereka dalam proyek coding awal mereka.",
+                "photos": [
+                    "/experiences/smii/1.jpg",
+                    "/experiences/smii/2.jpg"
+                ]
+            },
+            {
+                "period": "2025",
+                "role": "Pelatih",
+                "company": "SMK Muhammadiyah Bobotsari",
+                "image": "/experiences/bobotsari/1.jpg",
+                "desc": "Bertugas sebagai pelatih bagi siswa sekolah menengah atas, membantu mereka memahami konsep pemrograman dasar dan membimbing mereka dalam proyek coding awal mereka.",
+                "photos": [
+                    "/experiences/bobotsari/1.jpg",
+                    "/experiences/bobotsari/2.jpg"
+                ]
+            },
+            {
+                "period": "2025",
+                "role": "Pelatih",
+                "company": "PKBM Cahaya Sunnah",
+                "image": "/experiences/cahayasunnah/1.jpg",
+                "desc": "Bertugas sebagai pelatih bagi siswa sekolah menengah atas, membantu mereka memahami konsep pemrograman dasar dan membimbing mereka dalam proyek coding awal mereka.",
+                "photos": [
+                    "/experiences/cahayasunnah/1.jpg",
+                    "/experiences/cahayasunnah/2.jpg"
+                ]
+            }
+        ]
+    },
+    "certificates": {
+        "title": "Sertifikat",
+        "view": "VERIFIKASI",
+        "list": [
+            {
+                "title": "Belajar Membuat Aplikasi Flutter untuk Pemula",
+                "issuer": "Dicoding",
+                "date": "2025",
+                "credentialId": "L4PQ2W2L2ZO1",
+                "link": "https://www.dicoding.com/certificates/L4PQ2W2L2ZO1"
+            },
+            {
+                "title": "Belajar Dasar AI",
+                "issuer": "Dicoding",
+                "date": "2025",
+                "credentialId": "07Z6JJR6JXQR",
+                "link": "https://www.dicoding.com/certificates/07Z6JJR6JXQR"
+            },
+            {
+                "title": "Memulai Pemrograman dengan Dart",
+                "issuer": "Dicoding",
+                "date": "2025",
+                "credentialId": "JLX15K4W5Z72",
+                "link": "https://www.dicoding.com/certificates/JLX15K4W5Z72"
             }
         ]
     },

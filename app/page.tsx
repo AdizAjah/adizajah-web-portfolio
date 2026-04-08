@@ -10,6 +10,7 @@ import {
   Code2,
   FolderGit2,
   Briefcase,
+  Award,
   Mail,
   Download,
   Github,
@@ -21,7 +22,9 @@ import {
   Menu,
   X,
   Wrench,
+  ShieldCheck,
   MessageCircle, // Icon untuk WhatsApp
+  ChevronDown,
 } from "lucide-react";
 import { useLanguage } from "./context/LanguageContext";
 
@@ -42,10 +45,17 @@ export default function Home() {
   const { language, setLanguage, t } = useLanguage();
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [activeImage, setActiveImage] = useState(0);
+  const [expandedExp, setExpandedExp] = useState<number | null>(null);
+
+  const toggleExp = (index: number) => {
+    setExpandedExp(expandedExp === index ? null : index);
+  };
+
   const bgTextTopRef = useRef<HTMLDivElement>(null);
   const bgTextBottomRef = useRef<HTMLDivElement>(null);
+  const contactRowsRef = useRef<(HTMLDivElement | null)[]>([]);
 
-  const images = ["/Museum Angkut.jpg", "/haha.png"];
+  const images = ["/adiz.jpg", "/haha.png"];
 
   useEffect(() => {
     if (bgTextTopRef.current) {
@@ -66,6 +76,20 @@ export default function Home() {
         ease: "none",
       });
     }
+
+    // Contact section animated rows
+    contactRowsRef.current.forEach((row, i) => {
+      if (!row) return;
+      const isEven = i % 2 === 0;
+      const speed = 50 + (i % 5) * 5; // varied speeds between 50-70s
+      if (isEven) {
+        gsap.set(row, { xPercent: 0 });
+        gsap.to(row, { xPercent: -50, duration: speed, repeat: -1, ease: "none" });
+      } else {
+        gsap.set(row, { xPercent: -50 });
+        gsap.to(row, { xPercent: 0, duration: speed, repeat: -1, ease: "none" });
+      }
+    });
   }, []);
 
   // --- FUNGSI SMOOTH SCROLL ---
@@ -89,11 +113,13 @@ export default function Home() {
     SKILL: <Code2 size={18} />,
     PROJECT: <FolderGit2 size={18} />,
     EXPERIENCE: <Briefcase size={18} />,
+    CERTIFICATE: <Award size={18} />,
     SAYA: <User size={18} />,
     PENDIDIKAN: <GraduationCap size={18} />,
     KEAHLIAN: <Code2 size={18} />,
     PROYEK: <FolderGit2 size={18} />,
     PENGALAMAN: <Briefcase size={18} />,
+    SERTIFIKAT: <Award size={18} />,
   };
 
   const navItems = [
@@ -102,6 +128,7 @@ export default function Home() {
     { name: t.nav.skill, href: "#skill" },
     { name: t.nav.project, href: "#project" },
     { name: t.nav.experience, href: "#experience" },
+    { name: t.nav.certificate, href: "#certificate" },
   ];
 
   return (
@@ -109,7 +136,7 @@ export default function Home() {
 
       {/* --- Mobile Header --- */}
       <header className="fixed top-0 left-0 right-0 h-16 bg-black border-b-2 border-white z-50 flex items-center justify-between px-4 md:hidden">
-        <h1 className="text-lg font-bold tracking-wider">PORTFOLIO_</h1>
+        <h1 className="text-lg font-bold tracking-wider">ADIZAJAH</h1>
         <div className="flex items-center gap-2">
           <button
             onClick={() => setLanguage(language === 'en' ? 'id' : 'en')}
@@ -141,9 +168,9 @@ export default function Home() {
         md:translate-x-0 md:w-64
       `}>
         <div>
-          <h1 className="hidden md:block text-2xl font-bold border-b-2 border-white pb-2">ADIZ_PORT...</h1>
+          <h1 className="hidden md:block text-2xl font-bold border-b-2 border-white pb-2">ADIZ_DEV</h1>
           <div className="flex justify-between items-center md:hidden border-b-2 border-zinc-800 pb-2 mb-4">
-            <span className="font-bold">MENU_</span>
+            <span className="font-bold">MENU</span>
             <button onClick={() => setIsMenuOpen(false)}><X size={20} /></button>
           </div>
         </div>
@@ -154,7 +181,7 @@ export default function Home() {
             className="w-full flex items-center justify-center gap-2 px-2 py-2 border-2 border-zinc-700 hover:border-white hover:bg-white hover:text-black transition-colors text-xs font-bold tracking-wider"
           >
             <Languages size={16} />
-            <span>{language === 'en' ? 'INDONESIA' : 'ENGLISH'}</span>
+            <span>{language === 'en' ? 'ENGLISH' : 'INDONESIA'}</span>
           </button>
         </div>
 
@@ -285,7 +312,7 @@ export default function Home() {
                   <a href="https://www.linkedin.com/in/rainadiz-danendra-nugroho-834b5331b/" target="_blank" className="hover:text-white border border-zinc-800 p-2 hover:border-white transition-colors"><Linkedin size={20} /></a>
                 </div>
                 <div className="flex gap-6 text-xs md:text-sm text-zinc-500 border-l-0 sm:border-l-2 border-zinc-800 pl-0 sm:pl-6">
-                  <span><span className="text-white font-bold">3+</span> {t.hero.years_exp}</span>
+                  <span><span className="text-white font-bold">1+</span> {t.hero.years_exp}</span>
                   <span><span className="text-white font-bold">10+</span> {t.hero.projects}</span>
                 </div>
               </div>
@@ -436,48 +463,156 @@ export default function Home() {
             <div className="w-20 md:w-32 h-1 bg-white mb-8 md:mb-10"></div>
 
             <div className="space-y-6">
-              {t.experience.list.map((exp: any, index: number) => (
-                <div key={index} className="flex flex-col md:flex-row border-2 border-zinc-700 hover:border-white transition-colors p-4 md:p-6 gap-2 md:gap-4 group/exp">
-                  <div className="md:w-1/4 relative overflow-hidden text-zinc-500 text-xs md:text-sm font-bold border-b md:border-b-0 md:border-r border-zinc-800 pb-2 md:pb-0 md:pr-4 flex items-center min-h-[60px] md:min-h-[100px]">
-                    {/* DEBUG: Background Image */}
-                    {exp.image ? (
-                      <>
-                        <img
-                          src={exp.image}
-                          alt=""
-                          className="absolute inset-0 w-full h-full object-cover opacity-60 z-0"
-                        />
-                        {/* <span className="absolute bottom-0 left-0 text-[8px] bg-red-500 z-50">{exp.image}</span> */}
-                      </>
-                    ) : (
-                      <div className="absolute inset-0 bg-red-900/20 z-0">MISSING</div>
-                    )}
-                    <span className="relative z-10 bg-black/80 px-3 py-1 backdrop-blur-md border border-white/20 text-white">
-                      {exp.period}
-                    </span>
+              {t.experience.list.map((exp: any, index: number) => {
+                const isExpanded = expandedExp === index;
+
+                return (
+                  <div key={index} className="flex flex-col border-2 border-zinc-700 hover:border-white transition-colors group/exp">
+                    <div
+                      className="flex flex-col md:flex-row p-4 md:p-6 gap-2 md:gap-4 cursor-pointer"
+                      onClick={() => toggleExp(index)}
+                    >
+                      <div className="md:w-1/4 relative overflow-hidden text-zinc-500 text-xs md:text-sm font-bold border-b md:border-b-0 md:border-r border-zinc-800 pb-2 md:pb-0 md:pr-4 flex items-center min-h-[60px] md:min-h-[100px]">
+                        {exp.image ? (
+                          <>
+                            <img
+                              src={exp.image}
+                              alt=""
+                              className="absolute inset-0 w-full h-full object-cover opacity-60 z-0 grayscale group-hover/exp:grayscale-0 transition-all duration-300"
+                            />
+                          </>
+                        ) : (
+                          <div className="absolute inset-0 bg-red-900/20 z-0">MISSING</div>
+                        )}
+                        <span className="relative z-10 bg-black/80 px-3 py-1 backdrop-blur-md border border-white/20 text-white">
+                          {exp.period}
+                        </span>
+                      </div>
+                      <div className="md:w-3/4 flex justify-between items-center">
+                        <div className="flex flex-col justify-center">
+                          <h3 className="text-lg md:text-xl font-bold text-white group-hover/exp:text-white transition-colors">{exp.role}</h3>
+                          <p className="text-zinc-400 text-xs md:text-sm mt-1">@ {exp.company}</p>
+                        </div>
+                        <div>
+                          <ChevronDown
+                            size={24}
+                            className={`text-zinc-500 group-hover/exp:text-white transition-transform duration-300 ${isExpanded ? 'rotate-180' : ''}`}
+                          />
+                        </div>
+                      </div>
+                    </div>
+
+                    {/* Expandable Content */}
+                    <div className={`overflow-hidden transition-all duration-300 ${isExpanded ? 'max-h-[1000px] border-t border-zinc-800 opacity-100' : 'max-h-0 opacity-0'}`}>
+                      <div className="p-4 md:p-6 bg-zinc-900/30">
+                        <p className="text-zinc-300 text-sm md:text-base leading-relaxed mb-6 mt-2">
+                          {exp.desc}
+                        </p>
+                        {exp.photos && exp.photos.length > 0 && (
+                          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                            {exp.photos.map((photo: string, pIndex: number) => (
+                              <div key={pIndex} className="relative h-48 sm:h-64 border-2 border-zinc-700 bg-black overflow-hidden group-hover/exp:border-zinc-500 transition-colors">
+                                <Image
+                                  src={photo}
+                                  alt={`${exp.role} photo ${pIndex + 1}`}
+                                  layout="fill"
+                                  objectFit="cover"
+                                  className="grayscale hover:grayscale-0 transition-all duration-300"
+                                />
+                              </div>
+                            ))}
+                          </div>
+                        )}
+                      </div>
+                    </div>
                   </div>
-                  <div className="md:w-3/4 flex flex-col justify-center">
-                    <h3 className="text-lg md:text-xl font-bold text-white">{exp.role}</h3>
-                    <p className="text-zinc-400 text-xs md:text-sm mt-1">@ {exp.company}</p>
-                  </div>
-                </div>
-              ))}
+                );
+              })}
             </div>
             <h2 className="text-lg md:text-xl font-bold mt-10 text-zinc-600 uppercase tracking-wider">&lt;/{t.experience.title}&gt;</h2>
           </div>
         </section>
 
+        {/* === CERTIFICATES SECTION === */}
+        <section id="certificate" className="py-16 md:py-20 px-6 md:px-16 border-b-2 border-white">
+          <div>
+            <h2 className="text-2xl md:text-3xl font-bold mb-1 uppercase tracking-wider">&lt;{t.certificates.title}&gt;</h2>
+            <div className="w-20 md:w-32 h-1 bg-white mb-8 md:mb-10"></div>
+
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+              {t.certificates.list.map((cert: any, index: number) => (
+                <div
+                  key={index}
+                  className="border-2 border-zinc-700 hover:border-white transition-all duration-200 group bg-zinc-950 flex flex-col relative overflow-hidden"
+                >
+                  {/* Top accent line */}
+                  <div className="h-1 bg-white w-0 group-hover:w-full transition-all duration-300"></div>
+
+                  <div className="p-5 md:p-6 flex flex-col grow">
+                    {/* Header: Icon + Date badge */}
+                    <div className="flex items-start justify-between mb-4">
+                      <div className="border-2 border-zinc-700 group-hover:border-white p-2.5 transition-colors">
+                        <Award size={24} className="text-zinc-400 group-hover:text-white transition-colors" />
+                      </div>
+                      <span className="text-xs font-bold text-zinc-500 border border-zinc-700 px-2 py-1 tracking-wider">
+                        {cert.date}
+                      </span>
+                    </div>
+
+                    {/* Title */}
+                    <h3 className="text-base md:text-lg font-bold text-white uppercase tracking-wide">
+                      {cert.title}
+                    </h3>
+
+                    {/* Issuer */}
+                    <p className="text-zinc-400 text-xs md:text-sm mt-2">
+                      @ {cert.issuer}
+                    </p>
+
+                    {/* Bottom section: always aligned */}
+                    <div className="mt-auto pt-4">
+                      {/* Credential ID */}
+                      <div className="flex items-center gap-2 text-xs text-zinc-600 border-t border-zinc-800 pt-3">
+                        <ShieldCheck size={14} className="text-zinc-500" />
+                        <span className="font-mono tracking-wider">{cert.credentialId}</span>
+                      </div>
+
+                      {/* Verify Link */}
+                      {cert.link && (
+                        <a
+                          href={cert.link}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="mt-4 w-full border-2 border-white py-2 text-xs md:text-sm font-bold text-white hover:bg-white hover:text-black transition-colors flex items-center justify-center gap-2"
+                        >
+                          {t.certificates.view} <ExternalLink size={14} />
+                        </a>
+                      )}
+                    </div>
+                  </div>
+                </div>
+              ))}
+            </div>
+            <h2 className="text-lg md:text-xl font-bold mt-10 text-zinc-600 uppercase tracking-wider">&lt;/{t.certificates.title}&gt;</h2>
+          </div>
+        </section>
+
         {/* === CONTACT SECTION (MODIFIED) === */}
         <section id="contact" className="py-16 md:py-20 px-6 md:px-16 relative overflow-hidden">
-          {/* Wall of Text Background Pattern - Randomized Stagger */}
-          <div className="absolute inset-0 -z-10 opacity-[0.15] select-none pointer-events-none overflow-hidden flex flex-col">
-            {Array.from({ length: 40 }).map((_, i) => (
+          {/* Animated Background Text - Scrolling Left & Right */}
+          <div className="absolute inset-0 -z-10 opacity-[0.08] select-none pointer-events-none overflow-hidden flex flex-col justify-center">
+            {Array.from({ length: 12 }).map((_, i) => (
               <div
                 key={i}
-                className="whitespace-nowrap text-[20px] md:text-[32px] leading-tight tracking-[0.2em] font-black uppercase text-white"
-                style={{ marginLeft: `-${Math.random() * 200}px` }}
+                ref={(el) => { contactRowsRef.current[i] = el; }}
+                className="whitespace-nowrap text-[40px] md:text-[64px] leading-tight tracking-[0.15em] font-black uppercase text-white flex gap-16 w-max"
               >
-                {Array(40).fill("ADIZAJAH ").join("")}
+                {Array.from({ length: 5 }).map((_, j) => (
+                  <span key={j}>ADIZAJAH</span>
+                ))}
+                {Array.from({ length: 5 }).map((_, j) => (
+                  <span key={`dup-${j}`}>ADIZAJAH</span>
+                ))}
               </div>
             ))}
           </div>
